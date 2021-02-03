@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title> Faculty Hiring Analysis Dashboard </title>
+  <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1">
+  <link type="text/css" rel="stylesheet" href="styles.css " />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script src="//d3js.org/d3.v3.min.js"></script>
+  <script src="//d3js.org/queue.v1.min.js"></script>
+  <script src="d3-legend.min.js"></script>
+  <script src="//d3js.org/topojson.v1.min.js"></script>
+  <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+
+  <script src="makeMap1.js"></script>
+  <script src="barChart1.js"></script>
+  <script src="lineChart.js"></script>
+  <script src="stackedBarChart.js"></script>
+  <script src="pieChart1.js"></script>
+  <script src="HorizontalBarChart1.js"></script>
+  <script src="parallel.js"></script>
+  <script src="lollipopChart1.js"></script>
+</head>
+
+<body
+  onload="makeBarChart(); makeLineChart(); makeStackedBarChart(); makeMap(); makePieChart(); makeHorizontalBarChart();makeParallel();makeLollipopChart();">
+
+  <div class="main-div">
+    <div class="header">
+      <h3 class="header-style">Faculty Hiring Analysis Dashboard</h3>
+    </div>
+    <div class="pr-5 pl-5 pt-5 pb-5">
+      <div class="row no-gutters">
+        <div class="col-md-12 mb-4">
+          <div class="card big-grid-card card-colour">
+            <div>
+              <h4>
+                Gender ratio in Top 50 CS colleges per state
+              </h4>
+            </div>
+            <div class="card-value pt-4">
+
+              <div id="map-area"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card big-grid-card card-colour">
+            <div>
+              <h4>
+                Count of professors who pursued an education level from a US College
+              </h4>
+            </div>
+            <div class="card-value pt-4">
+              <div id="line-chart-area" style="padding-left: 40px;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card big-grid-card card-colour">
+            <div>
+              <h4>Citations, H-Index analysis per college category</h4>
+            </div>
+            <div class="card-value pt-4">
+              <div id="lollipop-chart-area" style="padding-left: 120px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <div class="card big-grid-card card-colour">
+            <div>
+              <h4>
+                Gender ratio in Top 50 CS colleges per research field
+              </h4>
+            </div>
+            <div class="card-value pt-4" style="height: 70vh;">
+              <div id="stacked-bar-chart-area" style="padding-left: 180px;height: 60vh;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card big-grid-card card-colour">
+            <div>
+              <h4>Gender ratio per college category</h4>
+            </div>
+            <div class="card-value pt-4">
+              <style>
+                svg {
+                  width: 100%;
+                  height: 100%;
+                }
+
+                path.slice {
+                  stroke-width: 2px;
+                }
+
+                polyline {
+                  opacity: .3;
+                  stroke: black;
+                  stroke-width: 2px;
+                  fill: none;
+                }
+
+                .labelValue {
+                  font-size: 60%;
+                  opacity: .5;
+
+                }
+
+                .toolTip {
+                  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                  position: absolute;
+                  display: none;
+                  width: auto;
+                  height: auto;
+                  background: none repeat scroll 0 0 white;
+                  border: 0 none;
+                  border-radius: 8px 8px 8px 8px;
+                  box-shadow: -3px 3px 15px #888888;
+                  color: black;
+                  font: 12px sans-serif;
+                  padding: 5px;
+                  text-align: center;
+                }
+
+                text {
+                  font: 12px sans-serif;
+                }
+              </style>
+              <form>
+                <label><input type="radio" name="gender_categ_data" id="gender_categ_data" value="opt1" checked>
+                  Category 1</label>
+                <label><input type="radio" name="gender_categ_data" id="gender_categ_data" value="opt2"> Category
+                  2</label>
+                <label><input type="radio" name="gender_categ_data" id="gender_categ_data" value="opt3"> Category
+                  3</label>
+                <label><input type="radio" name="gender_categ_data" id="gender_categ_data" value="opt4"> Category
+                  4</label>
+                <label><input type="radio" name="gender_categ_data" id="gender_categ_data" value="opt5"> Category
+                  5</label>
+              </form>
+              <div id="pie-chart-area" style="width: 800px; height: 500px; position: relative;">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card big-grid-card card-colour">
+            <div>
+              <h4>Popular countries for US professors for pursuing education levels</h4>
+            </div>
+            <div class="card-value pt-4" style="padding-left: 25px;">
+              <form>
+                <label><input type="radio" name="pop_country_data" id="pop_country_data" value="opt1" checked>
+                  BS</label>
+                <label><input type="radio" name="pop_country_data" id="pop_country_data" value="opt2"> MS</label>
+                <label><input type="radio" name="pop_country_data" id="pop_country_data" value="opt3"> Phd</label>
+              </form>
+              <div id="horizontal-bar-chart-area"></div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card big-grid-card card-colour" style="height: 120vh">
+            <div>
+              <h4>Citations, H-Index analysis per university</h4>
+            </div>
+            <div class="card-value pt-4">
+
+              <div id="pc-area" style="position: relative;padding-left: 50px;">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="card big-grid-card card-colour">
+            <div>
+              <h4>Popular research fields</h4>
+            </div>
+            <div class="card-value pt-4">
+              <div id="barchart-area" style="padding-left: 20px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</body>

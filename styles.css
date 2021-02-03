@@ -1,0 +1,155 @@
+
+body{
+  font-size: 1.5 rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+  color: rgba(39, 38, 38)!important;
+  background-color: rgb(223, 227, 247)!important;
+  border: black;
+  position: relative;
+}
+
+text {
+  font: 12px sans-serif;
+}
+
+div{
+
+  line-height:0;
+}
+
+.main-div {
+  font-size: 1.5 rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+  color: rgba(39, 38, 38) !important;
+  border: black;
+}
+a:hover{
+  color: #FF0099;
+}
+
+.states {
+    stroke: #fff;
+    stroke-width:1px;
+}
+.states:hover{
+  opacity: .6;
+}
+
+.legendLinear text {
+    font-size: 12px;
+}
+.d3-tip {
+  line-height: 1;
+  padding: 12px;
+  background: rgba(43,43,43, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+.header {
+  background-color:rgb(2, 35, 73);
+  height: 100px;
+  vertical-align: top;
+  margin-top: -20px
+}
+
+.header-style { 
+  font-weight: 150;
+  font-size: 1.2 rem !important;
+  color:rgb(229, 235, 241);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding-top: 40px;
+  padding-left: 10px;
+}
+
+.grid-card {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  
+  height: 50vh;
+  
+}
+
+.big-grid-card {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  /* background-color: aqua; */
+  height: 60vh;
+}
+
+.card-colour {
+  /* background: rgb(230, 235, 240) !important; */
+  border-color: rgb(255,255, 255);
+  /* background-color: aqua; */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+
+.bar rect {
+  shape-rendering: crispEdges;
+}
+
+.bar text {
+  fill: #999999;
+}
+
+.axis path, .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+.col-md-8.border-left {
+  border-left: 1px solid rgba(222, 226, 230, 0.07) !important;
+}
+
+.conv > span {
+  display: inline-block;
+  min-width: 75px !important;
+}
+
+
+.chart-container > * {
+  height: 100% !important;
+}
+
+.full-height.border-left, .full-height.border-right {
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.x.axis text {
+  fill: rgb(61, 60, 60);
+  font-weight: bold;
+}
+
+.y.axis text {
+  fill: rgb(61, 60, 60);
+  font-weight: bold;
+}
+
+
+
+
